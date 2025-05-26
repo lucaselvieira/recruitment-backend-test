@@ -1,0 +1,5 @@
+# Ignore unused files in projects
+.gradle/
+.github/
+build/
+gradle/
