@@ -13,7 +13,7 @@ import java.util.*
 @EnableAutoConfiguration(
     exclude = [
         SecurityAutoConfiguration::class,
-        ManagementWebSecurityAutoConfiguration::class
+        ManagementWebSecurityAutoConfiguration::class,
     ],
 )
 @SpringBootApplication

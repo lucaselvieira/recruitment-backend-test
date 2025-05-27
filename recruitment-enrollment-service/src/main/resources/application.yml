@@ -28,4 +28,7 @@ spring:
 server:
   port: 58080
   servlet.context-path: /recruitment-enrollment-service
+client:
+  financial:
+    url: http://localhost:58081/recruitment-financial-service
 logging.level.ROOT: INFO

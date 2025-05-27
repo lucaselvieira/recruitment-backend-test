@@ -1,7 +1,8 @@
 package br.com.recruitment.service.financial.infra.controller.instalment
 
 import br.com.recruitment.service.financial.application.usecase.instalment.CreateOrUpdateInstallmentUsecase
-import br.com.recruitment.service.financial.application.usecase.instalment.GetInstalmentByEnrollmentIdUsecase
+import br.com.recruitment.service.financial.application.usecase.instalment.GetInstalmentUsecase
+import br.com.recruitment.service.financial.application.usecase.instalment.GetInstalmentsIdsByEnrollmentIdUsecase
 import br.com.recruitment.service.financial.domain.instalment.Instalment
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
@@ -10,7 +11,8 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/api/v1/instalment")
 class InstalmentController(
     private val createOrUpdateInstallmentUseCase: CreateOrUpdateInstallmentUsecase,
-    private val getInstalmentByEnrollmentIdUsecase: GetInstalmentByEnrollmentIdUsecase,
+    private val getInstalmentsIdsByEnrollmentIdUsecase: GetInstalmentsIdsByEnrollmentIdUsecase,
+    private val getInstalmentUsecase: GetInstalmentUsecase,
 ) {
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
@@ -20,10 +22,17 @@ class InstalmentController(
         return createOrUpdateInstallmentUseCase.execute(instalment)
     }
 
-    @GetMapping("/find-by-enrollment-id/{enrollmentId}")
+    @GetMapping("/find-instalment-ids-by-enrollment-id/{enrollmentId}")
     fun findByEnrollmentId(
         @PathVariable enrollmentId: String,
-    ): List<Instalment> {
-        return getInstalmentByEnrollmentIdUsecase.execute(enrollmentId)
+    ): List<String> {
+        return getInstalmentsIdsByEnrollmentIdUsecase.execute(enrollmentId)
+    }
+
+    @GetMapping("/get-instalment-by-id/{id}")
+    fun getInstalment(
+        @PathVariable id: String,
+    ): Instalment? {
+        return getInstalmentUsecase.execute(id)
     }
 }
