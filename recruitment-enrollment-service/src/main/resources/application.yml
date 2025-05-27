@@ -3,7 +3,7 @@ spring:
     database-platform: org.hibernate.dialect.MySQLDialect
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/enrollment?useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:58082/enrollment?useSSL=false&allowPublicKeyRetrieval=true
     username: enrollment-user
     password: enrollment
     hikari:
@@ -21,7 +21,7 @@ spring:
       write_dates_as_timestamps: false
   data:
     mongodb:
-      uri: mongodb://enrollment-user:enrollment@localhost:27017/enrollment?retryWrites=true&w=majority
+      uri: mongodb://enrollment-user:enrollment@localhost:58084/enrollment?retryWrites=true&w=majority
       authentication-database: admin
       auto-index-creation: true
   cache.type: redis

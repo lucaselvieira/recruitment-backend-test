@@ -3,7 +3,7 @@ services:
     container_name: mysql-teste
     image: mysql
     ports:
-      - "3306:3306"
+      - "58082:3306"
     networks:
       - teste-network
     environment:
@@ -15,7 +15,7 @@ services:
     container_name: redis-teste
     image: redis
     ports:
-      - "6379:6379"
+      - "58083:6379"
     networks:
       - teste-network
     volumes:
@@ -26,7 +26,7 @@ services:
     image: mongo
     restart: always
     ports:
-      - "27017:27017"
+      - "58084:27017"
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: Teste123

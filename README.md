@@ -8,7 +8,7 @@ Este projeto contém dois microsserviços desenvolvidos em **Kotlin com Spring B
 * `recruitment-enrollment-service` (porta `58080`)
 * `recruitment-financial-service` (porta `58081`)
 
-O desafio consiste na criação de um job agendado que coleta e processa informações entre esses dois serviços, respeitando as premissas de arquitetura e segurança.
+O desafio consiste na criação de um job agendado que coleta e processa informações entre esses dois serviços.
 
 ---
 
@@ -60,7 +60,7 @@ Pré-requisitos:
 
 Baixe e extraia os dados do banco no diretório raiz do projeto:
 
-📥 [Download `data.zip`](https://kroton-my.sharepoint.com/:u:/r/personal/vinicius_c_ferreira_kroton_com_br/Documents/Banco%20de%20dados%20-%20teste%20recrutamento/data.zip?csf=1&web=1&e=fNNdya)
+📥 [Download dos volumes do docker (onedrive) ~ 2.3GB](https://kroton-my.sharepoint.com/:u:/r/personal/vinicius_c_ferreira_kroton_com_br/Documents/Banco%20de%20dados%20-%20teste%20recrutamento/data.zip?csf=1&web=1&e=fNNdya)
 
 Após extrair, a estrutura de pastas deve ser:
 
@@ -71,6 +71,7 @@ recruitment-backend-test/
 │   ├── mongo-data/
 │   ├── mysql-data/
 │   └── redis-data/
+├── ...
 ```
 
 ### 2. Subir containers
@@ -81,13 +82,11 @@ Execute:
 docker-compose up
 ```
 
-**Portas padrão:**
+**Portas:**
 
-* MongoDB: `27017`
-* MySQL: `3306`
-* Redis: `6379`
-
-⚠️ **Atenção:** verifique se essas portas não estão em uso por outros serviços em sua máquina.
+* MySQL: `58082`
+* Redis: `58083`
+* MongoDB: `58084`
 
 ---
 
@@ -97,7 +96,7 @@ Você deve criar um **job agendado no `recruitment-enrollment-service`** que ser
 
 ### Funcionalidade do Job
 
-1. **Selecionar alunos**: buscar todos os alunos cujo **dia da semana de nascimento** é igual ao dia atual de execução do job.
+1. **Selecionar alunos**: buscar todos os alunos cujo **dia da semana de nascimento** é igual ao dia da semana da execução do job. `Exemplo: Se o usuario nasceu em 18/12/1996 (quarta-feira) e o job esta sendo executado em uma quarta-feira então este aluno deveria ser processado`
 
 2. **Consultar matrículas**:
 
@@ -105,13 +104,14 @@ Você deve criar um **job agendado no `recruitment-enrollment-service`** que ser
 
 3. **Calcular valores**:
 
-   * **Total Pago**: somar todos os valores das parcelas (`instalment`) com status `PAID` de todas as matrículas do aluno.
-   * **Valor Restante**: somar (`duração` da matrícula × `valor do curso`) e subtrair o total pago.
+   * **Total Pago**: somar todos os valores `instralment.paid_amount` das parcelas com status `PAID` de todas as matrículas dos alunos elegiveis.
+   * **Valor Restante**: somar (duração da matrícula `enrollment.duration` × valor do curso `coursePrice.price`) e subtrair o total pago.
 
 4. **Gerar Relatório**: uma lista com:
 
    * ID do aluno
    * Nome do aluno
+   * Data de nascimento
    * Total pago
    * Valor restante
 
@@ -121,8 +121,8 @@ Você deve criar um **job agendado no `recruitment-enrollment-service`** que ser
 
 * Os serviços estão implantados em um **cluster Kubernetes** com mais de uma instancia em execução simultaneamente.
 * Ambos os serviços possuem acesso a **recursos AWS**.
+* E liberado a utilização de soluções computacionais (Filas, Cache etc)
 * Um serviço **não pode acessar diretamente o banco de dados do outro**.
-* **Não é permitido modificar** a estrutura dos bancos de dados ou das tabelas existentes.
 
 ---
 
@@ -134,14 +134,9 @@ Você deve criar um **job agendado no `recruitment-enrollment-service`** que ser
 
 ---
 
-## ✅ Conclusão
+> ### ⚠️ Em caso de dúvidas
+> Para qualquer dúvida relacionada ao desafio, entre em contato pelo e-mail:  
+> 📧 **jornadaaprendizagemdigitaldocencia-tls@kroton.onmicrosoft.com**
 
-Este desafio avalia sua habilidade com:
-
-* Kotlin + Spring Boot
-* Integração entre microsserviços
-* MongoDB e MySQL
-* Respeito a restrições de arquitetura
-* Agendamento e manipulação de dados
 
 Boa sorte! 🚀
