@@ -1,4 +1,3 @@
-
 # Desafio Técnico – Recruitment Backend
 
 ## Visão Geral
@@ -131,6 +130,26 @@ Você deve criar um **job agendado no `recruitment-enrollment-service`** que ser
 ![Modelo ER](./docs/er-diagram.svg)
 
 > Estrutura completa entre `users`, `enrollment`, `course_price`, e `instalment`.
+
+---
+
+## 📬 Entregáveis
+
+O desafio pode ser entregue de **duas formas**, sendo a **primeira a mais recomendada**:
+
+1. ✅ **Implementação do desafio**
+   Entregar o código com o job implementado, testável dentro da estrutura existente do projeto.
+
+   > **Esta é a forma recomendada de entrega.**
+
+2. 📝 **Especificação técnica detalhada**
+   Caso não seja possível implementar, é aceitável entregar um documento contendo:
+
+   * Análise completa do sistema atual e suas configurações;
+   * Lista de tarefas técnicas necessárias para a implementação do desafio;
+   * Justificativas técnicas para cada decisão proposta.
+
+> Ambas as opções serão avaliadas com base no **entendimento do problema**, **clareza da solução** e **adequação às premissas técnicas**.
 
 ---
 
