@@ -24,7 +24,7 @@
 | Codificar solução         | ✨ Opcional  | \~3 h          |
 
 
-> ##  ℹ️ O teste foi elaborado para rodar localmente, não necessita de infraestrutura cloud
+> ###  ℹ️ O teste foi elaborado para rodar localmente, não necessita de infraestrutura cloud
 
 ## Visão Geral
 
