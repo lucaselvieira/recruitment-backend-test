@@ -1,4 +1,30 @@
-# Desafio Técnico – Recruitment Backend
+> ⚠️ **Este teste não é eliminatório**  
+> Ele será utilizado como base para perguntas técnicas durante a entrevista.
+
+# 🧪 Desafio Técnico – Backend (1 a 4 horas estimadas)
+
+🎯 Este teste tem como objetivo avaliar seu raciocínio técnico, clareza de pensamento e capacidade de propor soluções viáveis diante de problemas reais.
+
+💡 Sinta-se livre para usar ferramentas e abordagens com as quais se sinta confortável. Você pode sugerir melhorias, simplificações ou até apresentar alternativas à proposta original.
+
+🏆 Independentemente do resultado, todos os participantes recebem feedback técnico com sugestões de melhoria após a avaliação.
+
+🙏 Agradecemos muito pelo seu tempo e dedicação.  Estamos ansiosos para conhecer melhor seu trabalho na próxima etapa! 🚀
+
+
+## Esforço estimado 
+
+| Etapa                     | Obrigatório | Tempo estimado |
+| ------------------------- | ----------- | -------------- |
+| Clonar repositório        | ✅           | 2 min          |
+| Instalar Docker           | ✅           | 5 min          |
+| Executar app com Docker   | ✅           | 10 min         |
+| Analisar código existente | ✅           | 20 min         |
+| Documentar solução        | ✅           | 20 min         |
+| Codificar solução         | ✨ Opcional  | \~3 h          |
+
+
+> ##  ℹ️ O teste foi elaborado para rodar localmente, não necessita de infraestrutura cloud
 
 ## Visão Geral
 
@@ -95,7 +121,8 @@ Você deve criar um **job agendado no `recruitment-enrollment-service`** que ser
 
 ### Funcionalidade do Job
 
-1. **Selecionar alunos**: buscar todos os alunos cujo **dia da semana de nascimento** é igual ao dia da semana da execução do job. `Exemplo: Se o usuario nasceu em 18/12/1996 (quarta-feira) e o job esta sendo executado em uma quarta-feira então este aluno deveria ser processado`
+1. **Selecionar alunos**: buscar todos os alunos cujo **dia da semana de nascimento** é igual ao dia da semana da execução do job. 💡 *Exemplo:* se o usuário nasceu em 18/12/1996 (quarta-feira) e o job estiver sendo executado numa quarta-feira, ele deverá ser processado.
+
 
 2. **Consultar matrículas**:
 
@@ -103,7 +130,7 @@ Você deve criar um **job agendado no `recruitment-enrollment-service`** que ser
 
 3. **Calcular valores**:
 
-   * **Total Pago**: somar todos os valores `instralment.paid_amount` das parcelas com status `PAID` de todas as matrículas dos alunos elegiveis.
+   * **Total Pago**: somar todos os valores `instalment.paid_amount` das parcelas com status `PAID` de todas as matrículas dos alunos elegíveis.
    * **Valor Restante**: somar (duração da matrícula `enrollment.duration` × valor do curso `coursePrice.price`) e subtrair o total pago.
 
 4. **Gerar Relatório**: uma lista com:
@@ -118,9 +145,9 @@ Você deve criar um **job agendado no `recruitment-enrollment-service`** que ser
 
 ## 🧩 Premissas
 
-* Os serviços estão implantados em um **cluster Kubernetes** com mais de uma instancia em execução simultaneamente.
+* Os serviços estão implantados em um **cluster Kubernetes** com mais de uma instância(s) em execução simultaneamente.
 * Ambos os serviços possuem acesso a **recursos AWS**.
-* E liberado a utilização de soluções computacionais (Filas, Cache etc)
+* É permitido o uso de soluções computacionais (como filas, cache, etc.)
 * Um serviço **não pode acessar diretamente o banco de dados do outro**.
 
 ---
