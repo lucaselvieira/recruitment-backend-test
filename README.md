@@ -184,5 +184,15 @@ O desafio pode ser entregue de **duas formas**, sendo a **primeira a mais recome
 > Para qualquer dúvida relacionada ao desafio, entre em contato pelo e-mail:  
 > 📧 **jornadaaprendizagemdigitaldocencia-tls@kroton.onmicrosoft.com**
 
+---
+
+## 📝 Queremos ouvir você!
+
+Sua opinião é muito importante para nós.  
+Por favor, se puder, responda nosso formulário anônimo de feedback sobre este teste técnico.
+
+💡 [**Clique aqui para acessar o formulário**](https://forms.office.com/r/RJweUKwtbS)
+
+---
 
 Boa sorte! 🚀
