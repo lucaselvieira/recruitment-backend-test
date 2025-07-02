@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
 import org.springframework.boot.runApplication
+import org.springframework.scheduling.annotation.EnableScheduling
 import java.net.InetAddress
 import java.util.*
 
@@ -16,6 +17,7 @@ import java.util.*
         ManagementWebSecurityAutoConfiguration::class,
     ],
 )
+@EnableScheduling
 @SpringBootApplication
 class RecruitmentEnrollmentServiceApplication
 
